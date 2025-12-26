@@ -1,0 +1,18 @@
+[package]
+name = "mcp_relay"
+version = "0.1.0"
+edition = "2024"
+description = "Minimal MCP stdio-to-HTTP relay"
+license = "Apache-2.0"
+
+[dependencies]
+ureq = { version = "3", features = ["rustls"] }
+serde = { version = "1", default-features = false, features = ["derive", "alloc"] }
+serde_json = { version = "1", default-features = false, features = ["alloc"] }
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
