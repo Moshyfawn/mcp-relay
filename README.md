@@ -2,8 +2,10 @@
 
 Minimal binary that bridges stdio-based MCP clients to remote MCP servers over HTTP.
 
-```
-MCP Client (stdio) ←→ mcp-relay ←→ Remote MCP Server (HTTP/SSE)
+```mermaid
+graph LR
+    A[MCP Client<br/>stdio] <-->|stdio| B[mcp-relay]
+    B <-->|HTTP/SSE| C[Remote MCP Server<br/>HTTP/SSE]
 ```
 
 ## Usage
